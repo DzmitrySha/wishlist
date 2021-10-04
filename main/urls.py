@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import *
+from main.views import index, about, list_page
 
 urlpatterns = [
     path('', index, name='index_page'),
     path('about/', about, name='about_page'),
-    path('wisher/<int:pk>/', list_page, name='wish_list_page'),
+    path('wish-list/<int:pk>/', list_page, name='wish_list_page'),
 
 ]

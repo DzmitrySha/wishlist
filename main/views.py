@@ -24,11 +24,12 @@ def about(request):
 
 
 def list_page(request, pk):
-    wishlist = get_object_or_404(WishList, pk)
-
+    wishlist = get_object_or_404(WishList, pk=pk)
+    is_owner_list = wishlist.owner == request.user
     title = 'Списки листов желаний'
     context = {
         'title': title,
         'wishlist': wishlist,
+        'is_owner_list': is_owner_list,
     }
-    return render(request=request, template_name='wish_list.html', context=context)
+    return render(request=request, template_name='wish-list.html', context=context)
